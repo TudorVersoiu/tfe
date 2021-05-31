@@ -1,0 +1,43 @@
+<mat-card class="vertical-align">
+    <span class="mat-title"> Controls </span>
+    <mat-form-field appearance="fill">
+        <mat-label> Username </mat-label>
+        <input [(ngModel)]="username" matInput>
+    </mat-form-field>
+    <button mat-raised-button class="automargin">
+        Import Games from Lichess
+    </button>
+</mat-card>
+
+
+<mat-list>
+    <mat-card *ngFor="let game of games" class="game-card">
+        <mat-card-header>
+            <span *ngIf="game.createdAt">Played at {{game.createdAt | date:'medium'}} -> {{game.lastMoveAt | date:'shortTime'}} </span>
+        </mat-card-header>
+        <mat-chip-list>
+            <mat-chip>
+                Type: {{game.perf}}
+            </mat-chip>
+            <mat-chip>
+                Speed: {{game.speed}}
+            </mat-chip>
+            <mat-chip [class.black]="game.ownerColor=='black'">
+                Played as: {{ game.ownerColor }}
+            </mat-chip>
+            <mat-chip [class.green]="game.winner" [class.red]="!game.winner">
+                Outcome: 
+                <span *ngIf="game.winner">Win</span>
+                <span *ngIf="!game.winner">Loss</span>
+            </mat-chip>
+            <mat-chip>
+                Player name: {{game.ownerUserName}}
+            </mat-chip>
+        </mat-chip-list>
+        <mat-chip-list>
+            <mat-chip *ngFor="let move of game.moves | slice:0:10;" class="grey">
+                {{ move }}
+            </mat-chip>
+        </mat-chip-list>
+    </mat-card>
+</mat-list>

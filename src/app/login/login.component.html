@@ -1,0 +1,18 @@
+<div matDialogTitle class="title-area">Log In</div>
+
+<mat-dialog-content class="form-container">
+    <div class="log-input">
+        <mat-form-field appearance="fill">
+            <mat-label> Username </mat-label>
+            <input [(ngModel)]="username" matInput>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label> Password </mat-label>
+            <input [(ngModel)]="password" matInput>
+        </mat-form-field>
+    </div>
+    <div class="button-container">
+        <button mat-raised-button (click)="onLogin()">Login</button>
+        <button mat-raised-button>Cancel</button>
+    </div>
+</mat-dialog-content>

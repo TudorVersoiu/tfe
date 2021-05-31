@@ -1,0 +1,62 @@
+@toolbar-height: 60px;
+@sidebar-width: 180px;
+
+.app-content {
+}
+
+.main-toolbar {
+  height: @toolbar-height;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.toolbar-left {
+  display: flex;
+  width: 50%;
+}
+
+.toolbar-right {
+  display: flex;
+  justify-content: flex-end;
+  width: 50%;
+}
+
+#user-greet {
+  margin: auto 0.5rem auto 0.5rem;
+}
+
+.auth-button {
+  margin: 0.5rem;
+}
+
+.sidenav-container {
+  margin-top: @toolbar-height;
+  height: calc(~"100vh - @{toolbar-height}");
+}
+
+
+mat-sidenav {
+  width: @sidebar-width;
+}
+mat-sidenav-content {
+  width: calc(~"100% - @{sidebar-width}");
+  overflow: auto;
+}
+
+// Scrollbar styling
+mat-sidenav-content::-webkit-scrollbar {
+  width: 14px;
+}
+
+mat-sidenav-content::-webkit-scrollbar-track {
+  background: #424242;
+}
+
+mat-sidenav-content::-webkit-scrollbar-thumb {
+  background-color: #212121;
+}
+
