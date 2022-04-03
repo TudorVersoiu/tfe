@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
 
   public username: string = "";
   public password: string = "";
+  public error_list = [];
 
   ngOnInit(): void {
   }
@@ -25,10 +26,10 @@ export class LoginComponent implements OnInit {
   public async onLogin() {
     try {
       await this.userService.logIn(this.username, this.password);
-    } catch (error) {
-      this.snackBar.open(error, "Dismiss", {duration: 3000});
-    } finally {
       this.dialogRef.close();
+    } catch (error) {
+      this.error_list = error;
+      this.snackBar.open(error, "Dismiss", {duration: 3000});
     }
   }
 }

@@ -23,13 +23,16 @@ export class SignupComponent implements OnInit {
   public username: string = "";
   public password: string = "";
 
+  public error_list = [];
+
   async onSignup() {
     try {
       await this.userService.signUp(this.email, this.username, this.password);
+      this.snackBar.open(`Registered new user with username ${this.username}`, "Dismiss", {duration: 3000});
+      this.dialogRef.close();
     } catch ( error ) {
-      this.snackBar.open(error, "Dismiss", {duration: 3000});
+      this.snackBar.open("Could not create user", "Dismiss", {duration: 3000});
+      this.error_list = error;
     }
-    this.snackBar.open(`Registered new user with username ${this.username}`, "Dismiss", {duration: 3000});
-    this.dialogRef.close();
   }
 }

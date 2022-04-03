@@ -1,6 +1,6 @@
 <div matDialogTitle class="title-area">Log In</div>
 
-<mat-dialog-content class="form-container">
+<mat-dialog-content class="form-container" (keyup.enter)="onLogin()">
     <div class="log-input">
         <mat-form-field appearance="fill">
             <mat-label> Username </mat-label>
@@ -13,6 +13,14 @@
     </div>
     <div class="button-container">
         <button mat-raised-button (click)="onLogin()">Login</button>
-        <button mat-raised-button>Cancel</button>
+        <button mat-raised-button (click)="dialogRef.close()">Cancel</button>
+    </div>
+
+    <div>
+        <!-- Error list -->
+        <ng-container *ngFor="let error_message of error_list">
+            <span style="color:red">{{error_message}}</span>
+            <br>
+        </ng-container>
     </div>
 </mat-dialog-content>

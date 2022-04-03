@@ -1,7 +1,10 @@
 <div class="table mat-elevation-z6">
-    <div *ngFor="let row of squares; let i=index" class="row">
-        <div *ngFor="let square of row" class="square">
-            
-        </div>
+    <!-- Table header -->
+    <div style="width: 100%;">
+        <!-- TODO: Add controls here(nextMove, prevMove), is analysis available? -->
+        <button mat-raised-button>Next Move</button>
+        <button mat-raised-button>Previous Move</button>
     </div>
+    <!-- Actual table -->
+    <canvas #table_canvas width="500" height="500"></canvas>
 </div>

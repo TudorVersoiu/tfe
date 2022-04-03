@@ -46,8 +46,7 @@ export class UserService {
         {username: username, email: username, password: password},
         {observe: 'body', responseType: 'json'}).toPromise();
     } catch ( error ) {
-      console.error(error);
-      return;
+      throw error.error;
     }
 
     if ( !response ) throw "No response";
@@ -74,7 +73,7 @@ export class UserService {
       ).toPromise();
     } catch ( error ) {
       console.error(error);
-      throw "Could not create user";
+      throw error.error;
     }
   }
 }

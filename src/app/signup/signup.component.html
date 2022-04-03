@@ -1,22 +1,30 @@
-<div matDialogTitle class="title-area">Sing up</div>
+<div matDialogTitle class="title-area">Sign up</div>
 
-<mat-dialog-content class="form-container">
+<mat-dialog-content class="form-container" (keyup.enter)="onSignup()">
     <div class="log-input">
         <mat-form-field>
             <mat-label> Email </mat-label>
-            <input [(ngModel)]="email"] matInput/>
+            <input matInput [(ngModel)]="email"/>
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label> Username </mat-label>
-            <input [(ngModel)]="username" matInput/>
+            <input matInput [(ngModel)]="username"/>
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label> Password </mat-label>
-            <input [(ngModel)]="password" matInput/>
+            <input matInput [(ngModel)]="password"/>
         </mat-form-field>
     </div>
     <div class="button-container">
         <button mat-raised-button (click)="onSignup()">Register</button>
         <button mat-raised-button (click)="this.dialogRef.close()">Cancel</button>
+    </div>
+
+    <div>
+        <!-- Error list -->
+        <ng-container *ngFor="let error of error_list">
+            <span style="color:red">{{error}}</span>
+            <br>
+        </ng-container>
     </div>
 </mat-dialog-content>
