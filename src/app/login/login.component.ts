@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
 
   public username: string = "";
   public password: string = "";
-  public error_list = [];
+  public error_list: any = [];
 
   ngOnInit(): void {
   }
@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     try {
       await this.userService.logIn(this.username, this.password);
       this.dialogRef.close();
-    } catch (error) {
+    } catch (error: any) {
       this.error_list = error;
       this.snackBar.open(error, "Dismiss", {duration: 3000});
     }

@@ -45,7 +45,7 @@ export class UserService {
         `${backendUrl}/users/login`,
         {username: username, email: username, password: password},
         {observe: 'body', responseType: 'json'}).toPromise();
-    } catch ( error ) {
+    } catch ( error:any ) {
       throw error.error;
     }
 
@@ -71,7 +71,7 @@ export class UserService {
         {username: username, email: email, password: password},
         {observe: 'body', responseType: 'json'}
       ).toPromise();
-    } catch ( error ) {
+    } catch ( error:any ) {
       console.error(error);
       throw error.error;
     }

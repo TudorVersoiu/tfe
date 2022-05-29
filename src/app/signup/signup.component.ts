@@ -30,7 +30,7 @@ export class SignupComponent implements OnInit {
       await this.userService.signUp(this.email, this.username, this.password);
       this.snackBar.open(`Registered new user with username ${this.username}`, "Dismiss", {duration: 3000});
       this.dialogRef.close();
-    } catch ( error ) {
+    } catch ( error:any ) {
       this.snackBar.open("Could not create user", "Dismiss", {duration: 3000});
       this.error_list = error;
     }

@@ -16,7 +16,7 @@ export class GameService {
   ) { }
 
   public async getGames(): Promise<Game[]> {
-    let games: Game[] = await this.httpClient.get<Game[]>(
+    let games: Game[] | undefined = await this.httpClient.get<Game[]>(
       `${gameURI}/getUserGames`,
       {
         headers: {
@@ -30,6 +30,6 @@ export class GameService {
 
     console.log(games);
 
-    return games;
+    return (games === undefined)?[]:games;
   }
 }
