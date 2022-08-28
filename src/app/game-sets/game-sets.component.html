@@ -13,7 +13,11 @@
 <mat-list>
     <mat-card *ngFor="let game of games" class="game-card">
         <mat-card-header>
-            <span *ngIf="game.createdAt">Played at {{game.createdAt | date:'medium'}} -> {{game.lastMoveAt | date:'shortTime'}} </span>
+            <mat-chip-list>
+                <mat-chip style="margin-left: 5px; margin: 20px;">
+                    <span *ngIf="game.createdAt">Played at {{game.createdAt | date:'medium'}} -> {{game.lastMoveAt | date:'shortTime'}} </span>
+                </mat-chip>
+            </mat-chip-list>
         </mat-card-header>
         <mat-chip-list>
             <mat-chip>

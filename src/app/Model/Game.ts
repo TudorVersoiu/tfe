@@ -12,4 +12,5 @@ export interface Game {
     winner?: boolean;
     ownerUserName?: String;
     ownerColor?: String;
+    _id: String;
 }

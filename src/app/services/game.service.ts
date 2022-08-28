@@ -32,4 +32,15 @@ export class GameService {
 
     return (games === undefined)?[]:games;
   }
+
+  public async getGame(GameId: String) {
+    let games = await this.getGames();
+
+    for ( let game of games ) {
+      if ( game._id === GameId ) {
+        return game;
+      }
+    }
+    return undefined;
+  }
 }

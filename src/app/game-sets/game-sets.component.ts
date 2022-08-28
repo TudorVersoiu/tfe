@@ -17,6 +17,10 @@ export class GameSetsComponent implements OnInit {
   public username: String = "";
 
   async ngOnInit() {
+    this.fetchGames();
+  }
+
+  async fetchGames() {
     this.games = await this.gameService.getGames();
   }
 
