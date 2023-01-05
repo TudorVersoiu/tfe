@@ -24,6 +24,8 @@ import { HomeScreenComponent } from './home-screen/home-screen.component';
 import { GameSetsComponent } from './game-sets/game-sets.component';
 import { TableComponent } from './table/table.component';
 import { PositionAnalysisComponent } from './position-analysis/position-analysis.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
 
 
 @NgModule({
@@ -52,7 +54,8 @@ import { PositionAnalysisComponent } from './position-analysis/position-analysis
     MatFormFieldModule,
     MatInputModule,
     MatSnackBarModule,
-    MatChipsModule
+    MatChipsModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

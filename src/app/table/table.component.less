@@ -1,6 +1,18 @@
+.table-container
+{
+    margin: auto;
+}
+
+:host{
+    display: flex;
+}
+
 .table {
-    width: 800px;
-    height: 800px;
+    height: 100%;
+    width: 100%;
+    padding: 5%;
+
+    box-sizing: border-box;
 }
 
 .row { 
@@ -16,4 +28,21 @@
     background-color: grey;
     border: 1px solid black;
     box-sizing: border-box;
+}
+
+#table-canvas
+{
+    margin: auto;
+    width: 1000px;
+    height: 1000px;
+}
+
+.next-move-btn
+{
+    float: right;
+}
+
+.prev-move-btn
+{
+    float: left;
 }

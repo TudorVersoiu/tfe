@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Game } from '../Model/Game';
+import { AnalysisService } from '../services/AnalysisService/analysis.service';
 import { GameService } from '../services/game.service';
 
 @Component({
@@ -10,7 +12,9 @@ import { GameService } from '../services/game.service';
 export class GameSetsComponent implements OnInit {
 
   constructor(
-    public gameService: GameService
+    public gameService: GameService,
+    public analysisService: AnalysisService,
+    public router: Router
   ) { }
 
   public games: Game[] = [];
@@ -24,4 +28,15 @@ export class GameSetsComponent implements OnInit {
     this.games = await this.gameService.getGames();
   }
 
+  public async viewGame(gameId: String)
+  {
+    this.analysisService.gameId = gameId;
+    this.analysisService.moveNr = 0;
+    this.router.navigate(['position-analysis']);
+  }
+
+  public async analyseGame(gameId: String) {
+    this.analysisService.analyseGame(gameId);
+    console.log("a fost dat click pe buton special de analiza");
+  }
 }

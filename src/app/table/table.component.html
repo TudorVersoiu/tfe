@@ -1,10 +1,26 @@
-<div class="table mat-elevation-z6">
+<div style="float: left;width: 4cm;">
+<mat-list >
+    <mat-list-item *ngFor="let move of chessGame?.moves; index as i">
+        <div (click)="setMove(i)">
+        {{i+1}}. {{move}}
+        </div>
+    </mat-list-item>
+</mat-list>
+</div>
+<div style="float: left;" class="table mat-elevation-z6" id="table-container">
     <!-- Table header -->
-    <div style="width: 100%;">
+    <div style="margin: auto;width: 1000px;box-sizing: border-box;">
         <!-- TODO: Add controls here(nextMove, prevMove), is analysis available? -->
-        <button mat-raised-button>Next Move</button>
-        <button mat-raised-button>Previous Move</button>
+        <button mat-raised-button class="prev-move-btn" (click)="prevMove()">Previous Move</button>
+        <mat-checkbox [(ngModel)]="analysisChecked">
+            Visualize analysis
+        </mat-checkbox>
+        {{analysisChecked}}
+
+        <button mat-raised-button class="next-move-btn" (click)="nextMove()">Next Move</button>
     </div>
     <!-- Actual table -->
-    <canvas #table_canvas width="500" height="500"></canvas>
+    <div id="table-canvas">
+        <canvas #table_canvas width="1000" height="1000"></canvas>
+    </div>
 </div>

@@ -1,5 +1,25 @@
-<mat-card *ngIf="userService.isLoggedIn">
+<mat-card *ngIf="userService.isLoggedIn" >
     <span class="mat-title"> Hello, {{userService.Username}}</span>
     <br>
+    <div style="width: 90%; margin-top: 30vh; display: flex;">
+        <mat-card class="card">
+            <div style="display: flex;">
+                <button class="button" mat-raised-button routerLink="/game-sets">Game Sets</button>
+            </div>
+                <p class="mat-h1" style="text-align: center;margin-top: 30px;">Get Started, download and view your history of games on Lichess.org</p>
+        </mat-card>
+        <mat-card class="card">
+            <div style="display: flex;">
+                <button class="button" mat-raised-button routerLink="/statistics">Statistics</button> 
+            </div>
+                <p class="mat-h1" style="text-align: center;margin-top: 30px;">Discover various statistics about your game history</p>
+        </mat-card>
+        <mat-card class="card">
+            <div style="display: flex">
+                <button class="button" mat-raised-button routerLink="/position-analysis">Position Analysis</button>
+            </div>
+                <p class="mat-h1" style="text-align: center;margin-top: 30px;">Have a look at a visual representation that will help you recognize positional weak spots in your game</p>
+        </mat-card>
+    </div>
     <span class="mat-subheading-1"> To get started, import some games</span>
 </mat-card>

@@ -11,37 +11,47 @@
 
 
 <mat-list>
-    <mat-card *ngFor="let game of games" class="game-card">
-        <mat-card-header>
+    <mat-card style="display:flex" *ngFor="let game of games" class="game-card">
+        <div>
             <mat-chip-list>
                 <mat-chip style="margin-left: 5px; margin: 20px;">
                     <span *ngIf="game.createdAt">Played at {{game.createdAt | date:'medium'}} -> {{game.lastMoveAt | date:'shortTime'}} </span>
                 </mat-chip>
             </mat-chip-list>
-        </mat-card-header>
-        <mat-chip-list>
-            <mat-chip>
-                Type: {{game.perf}}
-            </mat-chip>
-            <mat-chip>
-                Speed: {{game.speed}}
-            </mat-chip>
-            <mat-chip [class.black]="game.ownerColor=='black'">
-                Played as: {{ game.ownerColor }}
-            </mat-chip>
-            <mat-chip [class.green]="game.winner" [class.red]="!game.winner">
-                Outcome: 
-                <span *ngIf="game.winner">Win</span>
-                <span *ngIf="!game.winner">Loss</span>
-            </mat-chip>
-            <mat-chip>
-                Player name: {{game.ownerUserName}}
-            </mat-chip>
-        </mat-chip-list>
-        <mat-chip-list>
-            <mat-chip *ngFor="let move of game.moves | slice:0:10;" class="grey">
-                {{ move }}
-            </mat-chip>
-        </mat-chip-list>
+            <mat-chip-list>
+                <mat-chip>
+                    Type: {{game.perf}}
+                </mat-chip>
+                <mat-chip>
+                    Speed: {{game.speed}}
+                </mat-chip>
+                <mat-chip [class.black]="game.ownerColor=='black'">
+                    Played as: {{ game.ownerColor }}
+                </mat-chip>
+                <mat-chip [class.green]="game.winner" [class.red]="!game.winner">
+                    Outcome: 
+                    <span *ngIf="game.winner">Win</span>
+                    <span *ngIf="!game.winner">Loss</span>
+                </mat-chip>
+                <mat-chip>
+                    Player name: {{game.ownerUserName}}
+                </mat-chip>
+            </mat-chip-list>
+        </div>
+        <div>
+            <mat-chip-list>
+                <mat-chip *ngFor="let move of game.moves | slice:0:25;" class="grey">
+                    {{ move }}
+                </mat-chip>
+            </mat-chip-list>
+        </div>
+        <div style="margin-right: 10;">
+            <button style="height: 100%;width: fit-content;" mat-raised-button (click)="analyseGame(game._id)">
+                Start analysis...
+            </button>
+            <button style="height: 100%;width: fit-content;" mat-raised-button [class.green]="game.analyzed" (click)="viewGame(game._id)">
+                View analysis
+            </button>
+        </div>
     </mat-card>
 </mat-list>

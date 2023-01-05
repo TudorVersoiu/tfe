@@ -2,6 +2,8 @@
 @sidebar-width: 180px;
 
 .app-content {
+  width: 100%;
+  height: calc(~"100vh - @{toolbar-height}");
 }
 
 .main-toolbar {
@@ -36,6 +38,7 @@
 .sidenav-container {
   margin-top: @toolbar-height;
   height: calc(~"100vh - @{toolbar-height}");
+  width: auto;
 }
 
 
@@ -46,17 +49,3 @@ mat-sidenav-content {
   width: calc(~"100% - @{sidebar-width}");
   overflow: auto;
 }
-
-// Scrollbar styling
-mat-sidenav-content::-webkit-scrollbar {
-  width: 14px;
-}
-
-mat-sidenav-content::-webkit-scrollbar-track {
-  background: #424242;
-}
-
-mat-sidenav-content::-webkit-scrollbar-thumb {
-  background-color: #212121;
-}
-
